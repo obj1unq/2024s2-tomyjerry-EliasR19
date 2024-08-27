@@ -1,6 +1,6 @@
 import tomyjerry.*
 
-describe "Testeo" {
+describe "Ejercicio 1" {
 
     test "Velocidad Maxima tom" {
         assert.equals(10, tom.velocidadMaxima())
@@ -20,4 +20,23 @@ describe "Testeo" {
     }
 }
 
-//assas
+describe "Ejercicio 2" {
+    
+    test "Tom comer jerry" {
+        assert.notThat(tom.puedeComer(120))
+        assert.notThat(tom.quiereComer(120, jerry))
+    }
+
+    test "tom comer nibbles" {
+        assert.that(tom.puedeComer(96))
+        assert.notThat(tom.quiereComer(96, nibbles))
+    }
+
+    test "tom comer nibbles: La revancha"{
+        assert.that(tom.puedeComer(60))
+        assert.that(tom.quiereComer(60, nibbles))
+    }
+}
+
+
+//

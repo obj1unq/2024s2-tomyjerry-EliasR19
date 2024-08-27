@@ -9,18 +9,35 @@ object tom {
 
 	method comer(raton) {
 		//Completar
-		energia = energia + 12 + raton.peso()
+		energia -= self.energiaGanada(raton)
 	}
-	
+	method energiaGanada(raton) {
+		return  12 + raton.peso()
+	}
+
+
 	method correr(distancia){
 		//Completar!
-		energia = energia - distancia / 2
+		energia -= self.energiaGastada(distancia)
+	}
+	
+	method energiaGastada(distancia){
+		return distancia / 2
 	}
 	
 	method velocidadMaxima()  {
 		//Completar!
 		return 5 + energia/10
 	}
+
+	method puedeComer(distancia) {
+		return energia > self.energiaGastada(distancia)
+	}
+
+	method quiereComer(distancia, raton){
+		return self.puedeComer(distancia) && (self.energiaGastada(distancia) < self.energiaGanada(raton))
+	}
+
 	
 }
 
@@ -43,5 +60,3 @@ object nibbles {
 		return 35
 	}
 }
-
-///adsdsd
